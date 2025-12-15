@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { MarkdownRenderer } from "@/components/ui/markdown-renderer";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -283,9 +284,13 @@ Could you provide more context about what specific aspect you'd like me to expla
                   )}
                 >
                   <div className="prose prose-sm prose-invert max-w-none">
-                    <div className="whitespace-pre-wrap text-sm">
-                      {message.content}
-                    </div>
+                    {message.role === "assistant" ? (
+                      <MarkdownRenderer content={message.content} />
+                    ) : (
+                      <div className="whitespace-pre-wrap text-sm">
+                        {message.content}
+                      </div>
+                    )}
                   </div>
                   <p className="text-[10px] opacity-50 mt-2">
                     {message.timestamp.toLocaleTimeString()}
