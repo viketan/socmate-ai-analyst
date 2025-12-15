@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 import { cn } from "@/lib/utils";
 
 interface MarkdownRendererProps {
@@ -10,6 +11,7 @@ export function MarkdownRenderer({ content, className }: MarkdownRendererProps) 
   return (
     <div className={cn("text-sm", className)}>
       <ReactMarkdown
+        remarkPlugins={[remarkBreaks]}
         components={{
           h1: ({ children }) => (
           <h1 className="text-lg font-bold mt-3 mb-2 text-foreground">{children}</h1>
