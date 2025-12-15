@@ -15,7 +15,7 @@ const navItems = [
   { path: "/", label: "Dashboard", icon: LayoutDashboard },
   { path: "/alerts", label: "Alerts", icon: AlertTriangle },
   { path: "/incidents", label: "Incidents", icon: FileText },
-  { path: "/assistant", label: "Assistant", icon: MessageSquare },
+  { path: "/assistant", label: "SOC Copilot", icon: MessageSquare },
 ];
 
 export function MainLayout() {
