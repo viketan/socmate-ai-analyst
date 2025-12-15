@@ -3,6 +3,7 @@ import { MessageSquare, X, Send, Bot, User, Sparkles, Loader2 } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { MarkdownRenderer } from "@/components/ui/markdown-renderer";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -163,7 +164,11 @@ export function ChatDrawer({ isOpen, onToggle }: ChatDrawerProps) {
                       : "bg-primary text-primary-foreground"
                   )}
                 >
-                  <div className="whitespace-pre-wrap">{message.content}</div>
+                  {message.role === "assistant" ? (
+                    <MarkdownRenderer content={message.content} />
+                  ) : (
+                    <div className="whitespace-pre-wrap">{message.content}</div>
+                  )}
                   <p className="text-[10px] opacity-50 mt-1">
                     {message.timestamp.toLocaleTimeString()}
                   </p>
