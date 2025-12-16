@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import { Bell, User, Shield, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { ChatDrawer } from "./ChatDrawer";
 import {
   DropdownMenu,
@@ -56,11 +55,7 @@ export function MainLayout() {
             ))}
           </nav>
 
-          {/* Right Section */}
           <div className="flex items-center gap-3">
-            <Badge variant="outline" className="hidden sm:flex bg-warning/10 text-warning border-warning/30">
-              Demo Mode
-            </Badge>
 
             <Button variant="ghost" size="icon" className="relative">
               <Bell className="h-5 w-5" />
