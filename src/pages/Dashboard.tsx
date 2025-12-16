@@ -1,6 +1,5 @@
 import { KPICards } from "@/components/dashboard/KPICards";
 import { AlertsTable } from "@/components/dashboard/AlertsTable";
-import { IncidentCards } from "@/components/dashboard/IncidentCards";
 import { MitreChart } from "@/components/dashboard/MitreChart";
 import { AlertTrendChart } from "@/components/dashboard/AlertTrendChart";
 
@@ -30,15 +29,8 @@ export default function Dashboard() {
         <MitreChart />
       </div>
 
-      {/* Alerts and Incidents */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="xl:col-span-2">
-          <AlertsTable />
-        </div>
-        <div>
-          <IncidentCards />
-        </div>
-      </div>
+      {/* Alerts Table */}
+      <AlertsTable />
     </div>
   );
 }
