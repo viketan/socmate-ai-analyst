@@ -37,12 +37,17 @@ export default function Alerts() {
   const [searchQuery, setSearchQuery] = useState("");
   const [jsonInput, setJsonInput] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [severityFilter, setSeverityFilter] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<string | null>(null);
 
-  const filteredAlerts = mockAlerts.filter(
-    (alert) =>
+  const filteredAlerts = mockAlerts.filter((alert) => {
+    const matchesSearch =
       alert.Input.AlertName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      alert.AlertID.toString().includes(searchQuery)
-  );
+      alert.AlertID.toString().includes(searchQuery);
+    const matchesSeverity = !severityFilter || alert.Input.AlertSeverity === severityFilter;
+    const matchesStatus = !statusFilter || alert.Status === statusFilter;
+    return matchesSearch && matchesSeverity && matchesStatus;
+  });
 
   const getSeverityClass = (severity: string) => {
     switch (severity) {
@@ -165,16 +170,44 @@ export default function Alerts() {
         </div>
 
         <div className="flex flex-wrap gap-2 mt-4">
-          <Badge variant="outline" className="cursor-pointer hover:bg-primary/10">
+          <Badge 
+            variant="outline" 
+            className={cn(
+              "cursor-pointer hover:bg-primary/10",
+              !severityFilter && !statusFilter && "bg-primary/20 border-primary"
+            )}
+            onClick={() => { setSeverityFilter(null); setStatusFilter(null); }}
+          >
             All ({mockAlerts.length})
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-destructive/10 text-destructive border-destructive/30">
+          <Badge 
+            variant="outline" 
+            className={cn(
+              "cursor-pointer hover:bg-destructive/10 text-destructive border-destructive/30",
+              severityFilter === "Critical" && "bg-destructive/20"
+            )}
+            onClick={() => setSeverityFilter(severityFilter === "Critical" ? null : "Critical")}
+          >
             Critical ({mockAlerts.filter((a) => a.Input.AlertSeverity === "Critical").length})
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-warning/10 text-warning border-warning/30">
+          <Badge 
+            variant="outline" 
+            className={cn(
+              "cursor-pointer hover:bg-warning/10 text-warning border-warning/30",
+              severityFilter === "High" && "bg-warning/20"
+            )}
+            onClick={() => setSeverityFilter(severityFilter === "High" ? null : "High")}
+          >
             High ({mockAlerts.filter((a) => a.Input.AlertSeverity === "High").length})
           </Badge>
-          <Badge variant="outline" className="cursor-pointer hover:bg-destructive/10 status-open">
+          <Badge 
+            variant="outline" 
+            className={cn(
+              "cursor-pointer hover:bg-destructive/10 status-open",
+              statusFilter === "Open" && "bg-destructive/20"
+            )}
+            onClick={() => setStatusFilter(statusFilter === "Open" ? null : "Open")}
+          >
             Open ({mockAlerts.filter((a) => a.Status === "Open").length})
           </Badge>
         </div>
