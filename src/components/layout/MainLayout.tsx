@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import { Bell, User, Shield, LayoutDashboard, AlertTriangle, FileText, MessageSquare } from "lucide-react";
+import { Bell, User, Shield, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChatDrawer } from "./ChatDrawer";
@@ -14,7 +14,6 @@ import {
 const navItems = [
   { path: "/", label: "Dashboard", icon: LayoutDashboard },
   { path: "/alerts", label: "Alerts", icon: AlertTriangle },
-  { path: "/incidents", label: "Incidents", icon: FileText },
   { path: "/assistant", label: "SOC Copilot", icon: MessageSquare },
 ];
 
