@@ -1,4 +1,4 @@
-import { AlertTriangle, ShieldCheck, Clock, TrendingUp, Activity, Shield } from "lucide-react";
+import { AlertTriangle, ShieldCheck, Clock, TrendingUp, Activity } from "lucide-react";
 import { kpiData } from "@/lib/mockData";
 
 const kpis = [
@@ -19,15 +19,6 @@ const kpis = [
     trend: "up",
     color: "text-destructive",
     bgColor: "bg-destructive/10",
-  },
-  {
-    label: "Open Incidents",
-    value: kpiData.openIncidents,
-    icon: Shield,
-    change: "-2",
-    trend: "down",
-    color: "text-warning",
-    bgColor: "bg-warning/10",
   },
   {
     label: "Resolved Today",
@@ -51,7 +42,7 @@ const kpis = [
 
 export function KPICards() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {kpis.map((kpi) => (
         <div
           key={kpi.label}

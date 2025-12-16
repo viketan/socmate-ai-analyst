@@ -268,67 +268,9 @@ export const mockAlerts: Alert[] = [
   }
 ];
 
-export interface Incident {
-  id: string;
-  title: string;
-  severity: "Critical" | "High" | "Medium" | "Low";
-  status: "Open" | "Triaged" | "Resolved";
-  alertCount: number;
-  createdAt: string;
-  updatedAt: string;
-  assignee?: string;
-  mitreAttacks: string[];
-}
-
-export const mockIncidents: Incident[] = [
-  {
-    id: "INC-001",
-    title: "Credential Theft & Data Exfiltration Campaign",
-    severity: "Critical",
-    status: "Open",
-    alertCount: 4,
-    createdAt: "2025-02-26T16:31:14Z",
-    updatedAt: "2025-02-26T18:55:12Z",
-    assignee: "analyst1@soc.com",
-    mitreAttacks: ["T1110", "T1059.001", "T1048"]
-  },
-  {
-    id: "INC-002",
-    title: "Malware Infection - Emotet",
-    severity: "Critical",
-    status: "Open",
-    alertCount: 1,
-    createdAt: "2025-02-26T12:10:45Z",
-    updatedAt: "2025-02-26T12:10:45Z",
-    mitreAttacks: ["T1566.001"]
-  },
-  {
-    id: "INC-003",
-    title: "Password Spray Attack",
-    severity: "High",
-    status: "Resolved",
-    alertCount: 1,
-    createdAt: "2025-02-26T15:45:00Z",
-    updatedAt: "2025-02-26T17:00:00Z",
-    assignee: "analyst2@soc.com",
-    mitreAttacks: ["T1110.003"]
-  },
-  {
-    id: "INC-004",
-    title: "Suspicious Geographic Login",
-    severity: "Medium",
-    status: "Triaged",
-    alertCount: 1,
-    createdAt: "2025-02-26T09:15:30Z",
-    updatedAt: "2025-02-26T10:30:00Z",
-    mitreAttacks: ["T1078"]
-  }
-];
-
 export const kpiData = {
   totalAlerts: 156,
   criticalAlerts: 12,
-  openIncidents: 8,
   resolvedToday: 15,
   mttr: "2.4h",
   alertsTrend: [

@@ -7,8 +7,6 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import Dashboard from "@/pages/Dashboard";
 import Alerts from "@/pages/Alerts";
 import AlertDetail from "@/pages/AlertDetail";
-import Incidents from "@/pages/Incidents";
-import IncidentDetail from "@/pages/IncidentDetail";
 import Assistant from "@/pages/Assistant";
 import NotFound from "@/pages/NotFound";
 
@@ -25,8 +23,6 @@ const App = () => (
             <Route path="/" element={<Dashboard />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/alerts/:id" element={<AlertDetail />} />
-            <Route path="/incidents" element={<Incidents />} />
-            <Route path="/incidents/:id" element={<IncidentDetail />} />
             <Route path="/assistant" element={<Assistant />} />
           </Route>
           <Route path="*" element={<NotFound />} />
