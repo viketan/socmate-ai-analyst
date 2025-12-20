@@ -3,6 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import { Bell, User, Shield, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChatDrawer } from "./ChatDrawer";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,14 +56,15 @@ export function MainLayout() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-
+          <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" className="relative">
               <Bell className="h-5 w-5" />
               <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-destructive text-[10px] font-bold flex items-center justify-center animate-pulse-glow">
                 3
               </span>
             </Button>
+
+            <ThemeToggle />
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
