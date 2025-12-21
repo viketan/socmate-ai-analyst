@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, Link } from "react-router-dom";
 import { Bell, User, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChatDrawer } from "./ChatDrawer";
@@ -27,13 +27,13 @@ export function MainLayout() {
       <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="h-full px-4 lg:px-8 flex items-center justify-between">
           {/* PwC Logo */}
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src={pwcLogo} alt="PwC" className="h-8 object-contain" />
             <div className="h-6 w-px bg-border" />
             <span className="text-lg font-semibold tracking-tight">
               SOC<span className="text-primary">Mate</span>
             </span>
-          </div>
+          </Link>
 
           {/* Center Navigation */}
           <nav className="hidden md:flex items-center gap-1 bg-secondary/50 rounded-full p-1">
