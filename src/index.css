@@ -64,8 +64,8 @@
     --glow-primary: 0 0 20px hsl(217 91% 50% / 0.2);
     --glow-accent: 0 0 20px hsl(38 92% 50% / 0.2);
     --glow-destructive: 0 0 20px hsl(0 72% 51% / 0.2);
-    --gradient-cyber: linear-gradient(135deg, hsl(217 91% 50% / 0.05), hsl(280 65% 60% / 0.03));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-cyber: linear-gradient(135deg, hsl(217 91% 50% / 0.08), hsl(280 65% 60% / 0.05));
+    --gradient-card: linear-gradient(180deg, hsl(210 40% 100%), hsl(210 40% 96%));
   }
 
   .dark {
