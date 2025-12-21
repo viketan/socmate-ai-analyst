@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import { Bell, User, Shield, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
+import { Bell, User, LayoutDashboard, AlertTriangle, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChatDrawer } from "./ChatDrawer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import pwcLogo from "@/assets/pwc-logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,12 +26,11 @@ export function MainLayout() {
       {/* Modern Header */}
       <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="h-full px-4 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center cyber-glow">
-              <Shield className="h-5 w-5 text-primary" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">
+          {/* PwC Logo */}
+          <div className="flex items-center gap-3">
+            <img src={pwcLogo} alt="PwC" className="h-8 object-contain" />
+            <div className="h-6 w-px bg-border" />
+            <span className="text-lg font-semibold tracking-tight">
               SOC<span className="text-primary">Mate</span>
             </span>
           </div>
