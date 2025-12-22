@@ -1,4 +1,4 @@
-import { AlertTriangle, ShieldCheck, Clock, TrendingUp, Activity } from "lucide-react";
+import { ArrowUpRight, BellOff, Clock, TrendingUp, Activity } from "lucide-react";
 import { kpiData } from "@/lib/mockData";
 
 const kpis = [
@@ -12,22 +12,22 @@ const kpis = [
     bgColor: "bg-primary/10",
   },
   {
-    label: "Critical Alerts",
-    value: kpiData.criticalAlerts,
-    icon: AlertTriangle,
-    change: "+3",
+    label: "Escalated Alerts",
+    value: kpiData.escalatedAlerts,
+    icon: ArrowUpRight,
+    change: "+2",
     trend: "up",
-    color: "text-destructive",
-    bgColor: "bg-destructive/10",
+    color: "text-warning",
+    bgColor: "bg-warning/10",
   },
   {
-    label: "Resolved Today",
-    value: kpiData.resolvedToday,
-    icon: ShieldCheck,
-    change: "+5",
+    label: "Suppressed Alerts",
+    value: kpiData.suppressedAlerts,
+    icon: BellOff,
+    change: "+7",
     trend: "up",
-    color: "text-success",
-    bgColor: "bg-success/10",
+    color: "text-muted-foreground",
+    bgColor: "bg-muted/50",
   },
   {
     label: "Avg MTTR",
@@ -55,7 +55,7 @@ export function KPICards() {
             <div
               className={`flex items-center gap-1 text-xs font-medium ${
                 kpi.trend === "up"
-                  ? kpi.label.includes("Critical") || kpi.label.includes("Total")
+                  ? kpi.label.includes("Escalated") || kpi.label.includes("Total")
                     ? "text-destructive"
                     : "text-success"
                   : "text-success"

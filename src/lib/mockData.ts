@@ -270,8 +270,8 @@ export const mockAlerts: Alert[] = [
 
 export const kpiData = {
   totalAlerts: 156,
-  criticalAlerts: 12,
-  resolvedToday: 15,
+  escalatedAlerts: 8,
+  suppressedAlerts: 23,
   mttr: "2.4h",
   alertsTrend: [
     { hour: "00:00", count: 5 },
